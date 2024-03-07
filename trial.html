@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            position: relative;
+            width: fit-content;
+        }
+        .image {
+            display: block;
+            width: 600px; /* Adjust main image width as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .thumbnail {
+            position: absolute;
+            top: 10px; /* Adjust as per requirement */
+            right: -120px; /* Adjust based on thumbnail size */
+            width: 100px; /* Adjust thumbnail image width as needed */
+            height: auto; /* Maintain aspect ratio */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img id="mainImage" class="image" src="images/FDP1.jpg" alt="Main Image">
+    <img id="thumbnailImage" class="thumbnail" src="DP1.png" alt="Thumbnail Image" onclick="toggleImages()">
+</div>
+
+<script>
+    var mainImageDisplayed = true;
+
+    function toggleImages() {
+        var mainImage = document.getElementById("mainImage");
+        var thumbnailImage = document.getElementById("thumbnailImage");
+        
+        if (mainImageDisplayed) {
+            mainImage.src = thumbnailImage.src;
+            thumbnailImage.src = "images/FDP1.jpg"; // Swap back to the first image
+        } else {
+            mainImage.src = "images/FDP1.jpg";
+            thumbnailImage.src = "DP1.png";
+        }
+        mainImageDisplayed = !mainImageDisplayed;
+    }
+</script>
+
+</body>
+</html>
